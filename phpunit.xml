@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="lib/autoload.php" colors="true" cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="seguridad">
+            <directory>test</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>lib</directory>
+            <directory>controllers</directory>
+            <directory>models</directory>
+            <directory>views</directory>
+            <file>index.php</file>
+        </include>
+    </source>
+</phpunit>

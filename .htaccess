@@ -1,0 +1,11 @@
+Options -Indexes
+
+<Files ".env">
+    Require all denied
+</Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?:lib|models|controllers|test|storage|vendor)(?:/|$) - [F,L]
+    RewriteRule ^(?:composer\.(?:json|lock)|sonar-project\.properties|phpunit\.xml)$ - [F,L]
+</IfModule>

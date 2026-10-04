@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS `db_inventory`.`USERS` (
   `user_state` TINYINT NOT NULL,
   PRIMARY KEY (`user_code`),
   INDEX `ind_users_roles` (`rol_code` ASC),
-  CONSTRAINT `fk_users_roles` FOREIGN KEY (`rol_code`) REFERENCES `db_inventory`.`ROLES` (`rol_code`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_users_roles` FOREIGN KEY (`rol_code`) REFERENCES `db_inventory`.`ROLES` (`rol_code`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  UNIQUE KEY `uk_users_email` (`user_email`)
 ) ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `db_inventory`.`CUSTOMERS`
@@ -103,5 +104,6 @@ INSERT INTO ROLES VALUES
 (null, 'customer'),
 (null, 'seller');
 
+-- Clave inicial del usuario de demostración: Admin12345. Cámbiela después del primer ingreso.
 INSERT INTO USERS VALUES 
-(1, null, 'Albeiro', 'Ramos', '1234567890', 'profealbeiro2020@gmail.com', sha1('12345'), 1);
+(1, null, 'Albeiro', 'Ramos', '1234567890', 'profealbeiro2020@gmail.com', '$2y$10$wqVaqsmXQ.cLOBCmt.HgYOvmTe9ooyT3c5S84vVZgtnviJ7A0zhPe', 1);

@@ -1,0 +1,7 @@
+/vendor/
+/.env
+/storage/attempts/*
+!/storage/attempts/.gitkeep
+/.phpunit.cache/
+/coverage.xml
+/.scannerwork/
